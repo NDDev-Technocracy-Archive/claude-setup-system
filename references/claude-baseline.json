@@ -325,6 +325,42 @@
             "source": "https://code.claude.com/docs/en/memory; re-read 2026-09-03 for Claude Code 2.1.259",
             "evidence": "page",
             "note": "Anthropic's current scope table names both ./CLAUDE.md and ./.claude/CLAUDE.md as team-shared project instructions. This first profile owns only the repository-root spelling: the immutable adaptation selects it, while claiming both would give one instruction kind two destinations without a selector."
+          },
+          {
+            "path": ".claude/skills",
+            "kinds": [
+              "skill"
+            ],
+            "shape": "directory",
+            "source": "https://code.claude.com/docs/en/skills",
+            "evidence": "page"
+          },
+          {
+            "path": ".claude/agents",
+            "kinds": [
+              "agent"
+            ],
+            "shape": "directory",
+            "source": "https://code.claude.com/docs/en/sub-agents",
+            "evidence": "page"
+          },
+          {
+            "path": ".claude/commands",
+            "kinds": [
+              "command"
+            ],
+            "shape": "directory",
+            "source": "https://code.claude.com/docs/en/skills",
+            "evidence": "page"
+          },
+          {
+            "path": ".claude/settings.json",
+            "kinds": [
+              "setting"
+            ],
+            "shape": "file",
+            "source": "https://code.claude.com/docs/en/settings",
+            "evidence": "page"
           }
         ],
         "declined": [
@@ -343,7 +379,9 @@
             "reason": "**New in 2.1.277, dated 2026-09-18 from the vendor's changelog**: in a project with no CLAUDE.md, Claude Code reads AGENTS.md instead (not yet on Bedrock, Vertex or Foundry). It is the instruction file four other harnesses in this estate own, so a repository written for them now reaches this product too -- a cross-read that did not exist when this surface was last measured, and the reason the repository-root CLAUDE.md this profile owns is also what suppresses it. Not owned: writing it would compete with four other products' writers for the same file, at a scope where a checkout's own file outranks any install.",
             "source": "https://code.claude.com/docs/en/changelog"
           }
-        ]
+        ],
+        "measured_at": "2026-10-26",
+        "loading_note": "Vendor trust, precedence, runtime state and managed policy remain independent of installation. Filesystem tests do not prove actual loading. Unowned shared resources must remain intact."
       }
     ],
     "configuration_format": {

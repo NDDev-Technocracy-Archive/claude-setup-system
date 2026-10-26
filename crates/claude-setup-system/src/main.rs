@@ -22,6 +22,9 @@ use std::process::ExitCode;
 
 mod software;
 
+#[cfg(test)]
+mod project_tests;
+
 use harness_runtime::{Harness, LaunchBinding, PreservationSurface, Scoped};
 use provider_v3::{ComponentKind, ProjectionKind, TargetScope};
 
@@ -209,9 +212,21 @@ pub const CLAUDE: Harness = Harness {
     scoped_projections: &[Scoped {
         target_scope: TargetScope::Project,
         profile_id: "claude/native-files/project/1",
-        component_kinds: &[ComponentKind::Instruction],
+        component_kinds: &[
+            ComponentKind::Instruction,
+            ComponentKind::Skill,
+            ComponentKind::Agent,
+            ComponentKind::Command,
+            ComponentKind::Setting,
+        ],
         projection_kinds: &[ProjectionKind::NativeFiles],
-        native_namespaces: &["CLAUDE.md"],
+        native_namespaces: &[
+            "CLAUDE.md",
+            ".claude/skills",
+            ".claude/agents",
+            ".claude/commands",
+            ".claude/settings.json",
+        ],
     }],
     max_files: 8192,
     max_bytes: 64 * 1024 * 1024,
