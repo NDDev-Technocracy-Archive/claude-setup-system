@@ -241,3 +241,18 @@ LLVM/MSVC SDK on Windows. It changes no system packages or runtime requirements.
 ## Licence
 
 AGPL-3.0-or-later. See `LICENSE`.
+
+## Source and native verification
+
+`just check` checks source formatting, Python/shell syntax, workflows and
+full-history secrets without compiling or starting a provider. CI supplies the
+original pull-request secret range explicitly. `just test` retains Clippy,
+all-target builds, crate projection self-checks and native Rust tests.
+
+`just verify` covers the Unix native profile, including supply-chain checks
+and a freshly built import-table measurement. CI separately runs Windows/macOS
+tests and the minimum compiler declared by Cargo.toml. The Windows import-table
+reader remains an explicit unverified gap. Compiler declarations come from
+rust-toolchain.toml and Cargo.toml; native tool bytes are pinned in .github/ci.
+Vendor lifecycle/evidence and publication workflows remain separate from source
+admission. These commands do not authenticate or install a vendor runtime.
